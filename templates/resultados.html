@@ -1,0 +1,119 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Resultados
+{% endblock %}
+
+{% block main %}
+    
+    <div class="container">
+        <br>
+        <!-- Botão ou texto do título do slide -->
+        <a href="#entradas" class="slide-title" data-toggle="collapse">Entradas </a>
+
+        <!-- Div que conterá o conteúdo do slide -->
+        <div id="entradas" class="slide-content collapse">
+            <!-- Conteúdo do slide -->
+            <h3>Histograma: Variação entre estimativa de projeto e ETPE</h3>
+            <img src="data:image/png;base64,{{ hist_p }}" alt="Histograma">
+            
+            <h3>Histograma: Variação entre o valor da obra e do projeto</h3>
+            <img src="data:image/png;base64,{{ hist_o }}" alt="Histograma">
+            
+            <h3>Histograma: Variação de orçamento</h3>
+            <img src="data:image/png;base64,{{ hist_d }}" alt="Histograma">
+            
+            <h3>Histograma: Variação entre a homem-hora prevista e a real</h3>
+            <img src="data:image/png;base64,{{ hist_mo }}" alt="Histograma">
+            
+            <h3>Histograma: Variação da mão-de-obra disponível</h3>
+            <img src="data:image/png;base64,{{ hist_hd }}" alt="Histograma">
+            
+            <h3>Lista de Projetos: </h3>{{ df_estimativa|safe }}
+            
+            <h3>Expectativa de Crédito: {{ disponivel }}</h3>
+
+            <h3>Expectativa de Homem-hora: {{ hh_disponivel }}</h3>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+        <!-- Botão ou texto do título do slide -->
+        <a href="#results" class="slide-title" data-toggle="collapse">Resultados</a>
+
+        <!-- Div que conterá o conteúdo do slide -->
+        <div id="results" class="slide-content collapse">
+
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>Maior percentual que atendeu ao critério: {{ max_in_crit }}%</h3>
+                    <h3>IDs associados ao maior percentual: {{ ids_associados }}</h3>        
+                    <h3>O gráfico abaixo apresenta, para cada carteira de projetos, a probabilidade da razão do custo real versus o custo previsto ficar entre {{ min_crit_orc*100 }}% e {{ max_crit_orc*100 }}% e da razão dos recursos humanos reais versus os recursos humanos previstos ficar entre {{ min_crit_hh*100 }}% e {{ max_crit_hh*100 }}%</h3>
+                    <img src="data:image/png;base64,{{ scatter_base64 }}" alt="Scatter Plot">
+                </div>
+                <div class="col-md-4">
+                    <h4>Lista de Projetos (carteira ótima em azul):</h4>
+                    {{ df_estimativa_resume|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+        <!-- Botão ou texto do título do slide -->
+        <a href="#results_orc" class="slide-title" data-toggle="collapse">Resultados - Fator Orçamentário </a>
+
+        <!-- Div que conterá o conteúdo do slide -->
+        <div id="results_orc" class="slide-content collapse">
+
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>Maior percentual que atendeu ao critério: {{ max_in_crit_orc }}%</h3>
+                    <h3>IDs associados ao maior percentual: {{ ids_associados_orc }}</h3>
+                    <h3>O gráfico abaixo apresenta, para cada carteira de projetos, a probabilidade da razão do custo real versus o custo previsto ficar entre {{ min_crit_orc*100 }}% e {{ max_crit_orc*100 }}%</h3>
+                    <img src="data:image/png;base64,{{ scatter_base64_orc }}" alt="Scatter Plot">
+                </div>
+                <div class="col-md-4">
+                    <h4>Lista de Projetos (carteira ótima (R$) em azul):</h4>
+                    {{ df_estimativa_resume_orc|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="container">
+        <!-- Botão ou texto do título do slide -->
+        <a href="#results_hh" class="slide-title" data-toggle="collapse">Resultados - Fator de Recursos Humanos </a>
+
+        <!-- Div que conterá o conteúdo do slide -->
+        <div id="results_hh" class="slide-content collapse">
+
+            <div class="row">
+                <div class="col-md-8">
+                    <h3>Maior percentual que atendeu ao critério (homem-hora): {{ max_in_crit_hh }}%</h3>
+                    <h3>IDs associados ao maior percentual (homem-hora): {{ ids_associados_hh }}</h3>
+                    <h3>O gráfico abaixo apresenta, para cada carteira de projetos, a probabilidade da razão dos recursos humanos reais versus os recursos humanos previstos ficar entre {{ min_crit_hh*100 }}% e {{ max_crit_hh*100 }}%</h3>
+                    <img src="data:image/png;base64,{{ scatter_base64_hh }}" alt="Scatter Plot">
+                </div>
+                <div class="col-md-4">
+                    <h4>Lista de Projetos (carteira ótima (RH) em azul):</h4>
+                    {{ df_estimativa_resume_hh|safe }}
+                </div>
+            </div>
+        </div>        
+    </div>  
+
+    <footer>
+        <div style="text-align: center;"></div>
+            <br><br>
+            <p>Processamento finalizado em {{ elapsed_time }} segundos.</p>
+        </div>
+    </footer>
+
+{% endblock %}

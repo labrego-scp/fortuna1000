@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Resultados
+{% endblock %}
+
+{% block main %}
+    
+    <h1>Modelos de Documentos</h1>
+    <ul>
+        {% for i in range(files|length) %}
+            <li>{{ description[i] }}: <a href="{{ url_for('download_file', filename=files[i]) }}">{{ files[i] }}</a></li>
+        {% endfor %}
+    </ul>
+
+
+{% endblock %}

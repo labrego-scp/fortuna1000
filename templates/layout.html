@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <title>Fortuna 1000 - {% block title %}{% endblock %}</title>
+
+    <link rel='icon' href='/static/favicon.ico'>
+    <link href='/static/styles.css' rel='stylesheet'>
+</head>
+
+<body style="margin: 0;">
+
+    <div class='container-fluid'> <!-- Alterado de container para container-fluid -->
+        <div class="header-container">
+            <div class="header-row">
+                <img src="static/logo.png" alt="Image" class="header-logo">
+                <div class="header-content">
+                    <h1>FORTUNA 1000</h1>
+                    <h2>GESTÃO DE RISCO ORÇAMENTÁRIO E DE RECURSOS HUMANOS</h2>
+                </div>
+                <img src="static/logo.png" alt="Image" class="header-logo">
+            </div>
+        </div>
+
+        <div class='row'>
+            <div class='col-sm-12 col-md-3 col-lg-2'>
+                <nav>
+                    <ul class='vertnav'>
+                        <li><a class='active' href='/'><b><i class="fa fa-fw fa-home"></i> Início</b></a></li>
+                        <li><a class='active' href='/modelos'><b><i class="fa fa-fw fa-file"></i> Modelos</b></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class='mainsty col-sm-12 col-md-9 col-lg-10' style="height:1000px;">
+                <main class="container p-1">
+                    {% block main %}{% endblock %}
+                </main>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <!-- Adicionando jQuery Mask Plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    
+</body>
+</html>

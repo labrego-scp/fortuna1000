@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Início
+{% endblock %}
+
+{% block main %}
+    <h1>Upload de arquivos padrão</h1>
+    <form method="post" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-md-6">
+                <h3>Custo</h3>
+                <label for="file_p">Variação entre estimativa de projeto e ETPE:</label><br>
+                <input type="file" name="file_p"><br>
+                <label for="file_o">Variação entre o valor da obra e do projeto:</label><br>
+                <input type="file" name="file_o"><br>
+                <label for="file_d">Variação de orçamento:</label><br>
+                <input type="file" name="file_d"><br>
+            </div>
+            <div class="col-md-6">
+                <h3>Recursos Humanos</h3>
+                <label for="file_mo">Variação entre estimativa de tempo real de elaboração de projeto e de tempo previsto no ETPE:</label><br>
+                <input type="file" name="file_mo"><br>
+                <label for="file_hd">Variação de recursos humanos disponíveis para elaboração de projetos:</label><br>
+                <input type="file" name="file_hd"><br>
+            </div>
+        </div>
+        <h3>Lista de projetos</h3>
+        <label for="file_estimativa">Lista de projetos:</label><br>
+        <input type=file name=file_estimativa><br>
+        <h1>Definição de parâmetros</h1>
+        <div class="row">
+            <div class="col-md-4">
+                <label for="disponivel">Expectativa de crédito (R$):</label>
+                <input type="text" name="disponivel" id="disponivel"><br><br>
+            </div>
+            <div class="col-md-4">
+                <label for="hh_disponivel">Expectativa de recursos humanos (h):</label>
+                <input type="text" name="hh_disponivel" id="hh_disponivel"><br><br>
+            </div>
+            <div class="col-md-4">
+                <label for="nrep">Número de repetições (sug. 10.000):</label>
+                <input type="text" name="nrep" id="nrep"><br><br>
+            </div>
+        </div>
+        <label for="min_crit_orc">Limite inferior porcentual do intervalo de confiança para o orçamento (sug. 100%):</label>
+        <input type="text" name="min_crit_orc" id="min_crit_orc"><br><br>
+        <label for="max_crit_orc_orc">Limite superior porcentual do intervalo de confiança para o orçamento (sug. 120%):</label>
+        <input type="text" name="max_crit_orc" id="max_crit_orc"><br><br>
+        <label for="min_crit_hh">Limite inferior porcentual do intervalo de confiança para os recursos humanos (sug. 100%):</label>
+        <input type="text" name="min_crit_hh" id="min_crit_hh"><br><br>
+        <label for="max_crit_hh">Limite superior porcentual do intervalo de confiança para os recursos humanos (sug. 120%):</label>
+        <input type="text" name="max_crit_hh" id="max_crit_hh"><br><br>
+        <input type=submit value=Simular>
+    </form>
+
+    <script>
+        $(document).ready(function(){
+            $('#disponivel').mask('000.000.000,00', {reverse: true});
+            $('#hh_disponivel').mask('000.000', {reverse: true});
+            $('#min_crit').mask('000%', {reverse: true});
+            $('#max_crit').mask('000%', {reverse: true});
+            $('#nrep').mask('000.000', {reverse: true});
+        });
+    </script>
+{% endblock %}

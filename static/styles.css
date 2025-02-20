@@ -1,0 +1,165 @@
+.active{
+    display: block;
+    padding: 7px 7px;
+    text-decoration: none;
+    background-color: black;
+    color:white;
+    border-top: 2px solid gray;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+}
+
+.nonactive{
+    display: block;
+    padding: 7px 7px;
+    text-decoration: none;
+    color:#000;
+    border-bottom: 2px solid #04AA6D;
+    border-right: 2px solid #04AA6D;
+    border-left: 2px solid #04AA6D;
+}
+
+.vertnav{
+    width: 15;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    font-family: Arial;
+    line-height: .9em;
+    background-color: #fff;
+    color: #000;
+    text-align: center;
+    height: 100%;
+    overflow: auto;
+    top: 14%;
+}
+
+li a:hover:not(.active) {
+  background-color: #095;
+  color: white;
+}
+
+.headersty{
+    text-align: center;
+    background-color: black;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    border: 2px solid black;
+    font-family: Arial;
+    width:100%;
+    top: 0;
+    height: 20%;
+    text-shadow: 0.1em 0.1em 0.2em white;
+    color: white;
+}
+
+
+.bodysty{
+    padding: 2%;
+}
+
+
+/* styles.css */
+
+/* Estilos para telas menores que 768px */
+@media (max-width: 767px) {
+    .headersty {
+        font-size: 1.2em;
+    }
+    .vertnav {
+        font-size: 0.9em;
+    }
+}
+
+/* Estilos para telas maiores que 768px */
+@media (min-width: 768px) {
+    .headersty {
+        background-color: black;
+            color: white;
+            padding: 20px 0; /* Adiciona espaçamento interno ao cabeçalho */
+            text-align: center;
+    }
+    .vertnav {
+        font-size: 1em;
+    }
+}
+
+.slide {
+    margin-bottom: 20px; /* Adicione margem na parte inferior para separar dos outros elementos */
+}
+
+/* Estilo para o botão "Entradas" */
+.slide-title {
+    font-weight: bold; /* Fonte em negrito */
+    background-color: #f0f0f0; /* Fundo cinza claro */
+    border: 1px solid #000; /* Borda preta */
+    padding: 10px 20px; /* Adiciona espaço interno */
+    cursor: pointer; /* Muda o cursor ao passar por cima para indicar que é clicável */
+    width: 100%; /* Largura total */
+    text-align: left; /* Alinha o texto à esquerda */
+    display: block; 
+    width: 100%;
+    color: black;
+    font-size: 24px;
+}
+
+/* Estilo para o ícone de seta do botão */
+.slide-title i {
+    float: right; /* Alinha o ícone à direita */
+    margin-top: 6px; /* Ajusta o espaçamento superior */
+}
+
+.slide-content {
+    padding: 10px; /* Adiciona preenchimento ao redor do conteúdo do slide */
+    border: 1px solid #ddd; /* Adiciona uma borda ao conteúdo do slide */
+    border-top: none; /* Remove a borda superior para evitar duplicação */
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+.header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+.header-content h1 {
+    margin: 0;
+}
+.header-content h2 {
+    margin: 0;
+}
+.header-logo {
+    height: 100px;
+    width: 100px;
+}
+
+.highlight {
+    font-weight: bold;
+    color: darkblue;
+}
+
+.downlight {
+    color: lightgray;
+    font-style: italic;
+    text-decoration: line-through;
+}
+
+.mainsty {
+    padding: 0 5px; 
+}
