@@ -34,19 +34,6 @@ def calculate_counts(df, df_grouped):
 
     return df_grouped
 
-# def main():
-    
-#     # Carregando os dados do Excel
-#     df = pd.read_excel('projeto_x_obra.xlsx')
 
-#     df_grouped = freedman(df)
-
-#     df_grouped = calculate_probabilities(df, df_grouped)
-
-#     df_grouped = calculate_counts(df, df_grouped)
-
-#     print(df_grouped['probability'])
-
-# main()
 
 

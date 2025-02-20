@@ -9,9 +9,8 @@ from helpers import create_histogram, create_scatter, clean_numeric, custom_form
 import time
 import matplotlib
 matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-import base64
-import io
+
+
 
 app = Flask(__name__)
 
@@ -182,8 +181,7 @@ def principal():
         # Cria o gráfico de dispersão    
         title = "Monte Carlo Mão-de-obra - Dispersão dos Projetos"
         scatter_base64_hh = create_scatter(range(1, len(df_in_crit['hh']) + 1), df_in_crit['hh']['In Crit HH'], title, n, highlight_index=prioridade_associada_hh)
-        #scatter_base64_hh = create_scatter(df_in_crit_hh['ID-PW'], df_in_crit_hh['In Crit HH'], title, n)
-
+        
         df_estimativa_resume_hh=df['estimativa'][['PRIORIDADE','ID-PW']]
         df_estimativa_resume_hh['ID'] = df_estimativa_resume_hh.apply(custom_formatter_id, axis=1, prioridade_associada=prioridade_associada_hh)
         df_estimativa_resume_hh['PRIORIDADE'] = df_estimativa_resume_hh['PRIORIDADE'].apply(custom_formatter_prior, prioridade_associada=prioridade_associada_hh)
