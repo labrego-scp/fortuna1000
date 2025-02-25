@@ -5,6 +5,7 @@ import os
 from werkzeug.utils import secure_filename
 from binning import freedman, calculate_probabilities, calculate_counts
 from montecarlo import montecarlo_orc, montecarlo_hh
+from grafico_ic import teste_z
 from helpers import create_histogram, create_scatter, clean_numeric, custom_formatter_id, custom_formatter_prior
 import time
 import matplotlib
@@ -214,8 +215,14 @@ def principal():
         
         # Converter a tabela para HTML
         df_estimativa_resume = df_estimativa_resume[['PRIORIDADE','ID']].to_html(index=False, classes='table table-striped', escape=False)
+        
         #-----------------------------------------------------------------------#
-     
+        
+        # Criar gráfico com intervalos de confiança e destacando as soluções cuja hipóetese nula do teste-Z não foi rejeitada
+        z=1.96 # Valor crítico para 95% de confiança
+        caminho_grafico = teste_z(z,limits["min_crit_orc"],limits['max_crit_orc'],limits['min_crit_hh'],limits['max_crit_hh'])
+        
+        
         elapsed_time = time.time() - start_time  # Calculando o tempo decorrido
         print(f'Tempo decorrido: {elapsed_time}')
 
@@ -244,7 +251,9 @@ def principal():
                                min_crit_orc=limits['min_crit_orc'],
                                max_crit_orc=limits['max_crit_orc'],
                                min_crit_hh=limits['min_crit_hh'],
-                               max_crit_hh=limits['max_crit_hh'])
+                               max_crit_hh=limits['max_crit_hh'],
+                               z=z,
+                               caminho_grafico=caminho_grafico)
         
 
     return render_template('index.html')
